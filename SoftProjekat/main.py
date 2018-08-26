@@ -14,6 +14,9 @@ import math
 import matplotlib.path as mplPath
 import imutils
 
+f = open("out.txt", "w")
+f.write("RA 15/2012,Srecko Stojic\n")
+f.write("file,count\n")
 for vid_nmb in range(1, 11):
     name = "video{0}.mp4".format(vid_nmb)
     vs = cv2.VideoCapture(name)
@@ -104,6 +107,7 @@ for vid_nmb in range(1, 11):
         if key == ord("q"):
             break
 
+    f.write(name + "," + brojac.__str__() + "\n")
     print(name, " -- Na platou je bilo ", brojac, " ljudi")
     vs.release()
     cv2.destroyAllWindows()
